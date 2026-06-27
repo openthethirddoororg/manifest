@@ -1,0 +1,12 @@
+# dependencies
+node_modules/
+
+# Astro build output & cache (generated site is never committed)
+template/dist/
+template/.astro/
+
+# logs / env
+*.log
+.env
+.env.*
+.DS_Store
