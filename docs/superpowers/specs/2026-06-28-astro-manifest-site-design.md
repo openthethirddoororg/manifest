@@ -207,5 +207,12 @@ GitHub repo setting: **Settings → Pages → Source: GitHub Actions**.
 - Exact `getStaticPaths` slug-splitting helper and `LangSwitch` mirror lookup.
 - Visual design specifics of `Base.astro` / `global.css` (maintainer-owned;
   not constrained by this spec).
-- Whether doc files (`LICENSE` etc.) are filled with final text or stubs in the
-  first implementation pass.
+
+## Implementation sequencing
+
+1. **First commit** — working Astro generation per this spec: `/content` (en+ru
+   Markdown stubs with valid frontmatter), `/template` (Astro project, layout,
+   components, config), `deploy.yml`, `.gitignore`; remove `/website`, `/docs`
+   Jekyll draft, and old `pages.yml`. Site must build and deploy.
+2. **Second commit** — fill the doc files: `README.md`, `LICENSE` (CC BY-SA 4.0),
+   `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`.
