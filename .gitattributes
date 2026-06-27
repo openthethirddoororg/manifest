@@ -1,0 +1,14 @@
+# Normalize all text files to LF in the repository and on checkout.
+# This is what actually stops the "LF will be replaced by CRLF" warning
+# (.editorconfig governs editors; .gitattributes governs git itself).
+* text=auto eol=lf
+
+# Explicit binary types — never touch their bytes or line endings.
+*.png  binary
+*.ico  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.woff  binary
+*.woff2 binary
