@@ -111,23 +111,30 @@ template/.astro/
 
 - [ ] **Step 5: Move assets into `template/public`**
 
+The working tree is mixed (some of these paths are tracked, some untracked
+from earlier exploration), so use plain filesystem moves — not `git mv` — and
+let Step 9 stage the result.
+
 Run (PowerShell):
 ```powershell
 New-Item -ItemType Directory -Force template\public\img | Out-Null
-git mv website/CNAME template/public/CNAME
-git mv website/favicon.ico template/public/favicon.ico
-git mv logo.png template/public/img/logo.png
+Move-Item -Force website\CNAME        template\public\CNAME
+Move-Item -Force website\favicon.ico  template\public\favicon.ico
+Move-Item -Force logo.png             template\public\img\logo.png
 ```
-Expected: three files relocated, staged as renames.
+Expected: three files now under `template/public`.
 
 - [ ] **Step 6: Remove the obsolete website folder, old workflow, and Jekyll draft**
 
-Run (PowerShell):
+Run (PowerShell). `-ErrorAction SilentlyContinue` tolerates paths that were
+already removed or never committed:
 ```powershell
-git rm -r website .github/workflows/pages.yml
-git rm -r docs/_config.yml docs/index.md docs/values.md docs/rules.md docs/trust.md docs/join.md docs/cohost.md docs/ru docs/_layouts docs/_includes docs/assets
+Remove-Item -Recurse -Force website -ErrorAction SilentlyContinue
+Remove-Item -Force .github\workflows\pages.yml -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force docs\_config.yml,docs\index.md,docs\values.md,docs\rules.md,docs\trust.md,docs\join.md,docs\cohost.md,docs\ru,docs\_layouts,docs\_includes,docs\assets -ErrorAction SilentlyContinue
 ```
-Expected: `website/index.html`, `pages.yml`, and all listed `docs/` Jekyll files removed; `docs/superpowers/` untouched.
+Expected: `website/`, `pages.yml`, and the `docs/` Jekyll draft gone;
+`docs/superpowers/` untouched.
 
 - [ ] **Step 7: Install dependencies**
 
@@ -141,10 +148,21 @@ Expected: prints an Astro 5.x version with no config error.
 
 - [ ] **Step 9: Commit**
 
+Stage **only** this task's paths. Do **not** use `git add -A`/`git add .` —
+empty `LICENSE`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md` files exist in the
+working tree as untracked placeholders for a later milestone and must NOT be
+committed here.
+
 ```powershell
-git add template/package.json template/astro.config.mjs template/tsconfig.json template/package-lock.json .gitignore
+git add template .gitignore
+git add website .github/workflows/pages.yml
+git status --short
 git commit -m "chore: scaffold Astro project in template/, relocate assets, drop drafts"
 ```
+Expected `git status --short` before commit: new `template/**` and
+`.gitignore` added; `website/**` and `pages.yml` shown as deletions; the
+empty `LICENSE`/`CONTRIBUTING.md`/`CODE_OF_CONDUCT.md` remain untracked
+(`??`) and unstaged.
 
 ---
 
