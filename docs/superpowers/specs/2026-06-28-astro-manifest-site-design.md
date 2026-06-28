@@ -55,7 +55,7 @@ manifest/
 │   └── public/
 │       ├── CNAME                 # openthethirddoor.org
 │       ├── favicon.ico
-│       └── img/logo.png
+│       └── images/logo.png
 │
 ├── .github/workflows/deploy.yml  # Astro build → Pages
 ├── README.md

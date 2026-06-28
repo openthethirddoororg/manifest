@@ -32,12 +32,12 @@ Establishes the `/template` Astro project skeleton, root `.gitignore`, relocates
 - Create: `.gitignore`
 - Move: `website/CNAME` → `template/public/CNAME`
 - Move: `website/favicon.ico` → `template/public/favicon.ico`
-- Move: `logo.png` (repo root) → `template/public/img/logo.png`
+- Move: `logo.png` (repo root) → `template/public/images/logo.png`
 - Delete: `website/` (remaining `index.html`), `.github/workflows/pages.yml`
 - Delete: `/docs` Jekyll draft only — `docs/_config.yml`, `docs/index.md`, `docs/values.md`, `docs/rules.md`, `docs/trust.md`, `docs/join.md`, `docs/cohost.md`, `docs/ru/`, `docs/_layouts/`, `docs/_includes/`, `docs/assets/`. **Keep `docs/superpowers/`.**
 
 **Interfaces:**
-- Produces: an Astro project rooted at `template/` with `site`, `i18n`, and `redirects` config that Task 2–5 build on. Public assets resolve to `dist/` root (`/CNAME`, `/favicon.ico`, `/img/logo.png`).
+- Produces: an Astro project rooted at `template/` with `site`, `i18n`, and `redirects` config that Task 2–5 build on. Public assets resolve to `dist/` root (`/CNAME`, `/favicon.ico`, `/images/logo.png`).
 
 - [ ] **Step 1: Create `template/package.json`**
 
@@ -613,7 +613,7 @@ const current = slug === 'index' ? '' : slug;
 ---
 <header class="site">
   <a class="brand" href={entryUrl(lang, 'index')}>
-    <img src="/img/logo.png" alt="Open the Third Door" />
+    <img src="/images/logo.png" alt="Open the Third Door" />
     <span>Open the Third Door</span>
   </a>
   <Nav lang={lang} current={current} />
@@ -709,7 +709,7 @@ $d = "template/dist"
 $paths = @(
   "$d/en/index.html", "$d/en/values/index.html", "$d/en/cohost/index.html",
   "$d/ru/index.html", "$d/ru/values/index.html",
-  "$d/index.html", "$d/CNAME", "$d/favicon.ico", "$d/img/logo.png"
+  "$d/index.html", "$d/CNAME", "$d/favicon.ico", "$d/images/logo.png"
 )
 $missing = $paths | Where-Object { -not (Test-Path $_) }
 if ($missing) { "MISSING:"; $missing } else { "OK: all expected files present" }
