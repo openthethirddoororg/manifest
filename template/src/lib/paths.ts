@@ -29,3 +29,8 @@ export function entryUrl(lang: Lang, slug: string): string {
 export function otherLang(lang: Lang): Lang {
   return lang === 'en' ? 'ru' : 'en';
 }
+
+/** Collection id for a page, e.g. pageId('ru','values') === 'ru/values'. */
+export function pageId(lang: Lang, slug: string): string {
+  return `${lang}/${slug}`;
+}

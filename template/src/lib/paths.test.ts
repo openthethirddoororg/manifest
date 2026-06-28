@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseId, routeSlug, entryUrl, otherLang, LANGS, DEFAULT_LANG } from './paths';
+import { parseId, routeSlug, entryUrl, otherLang, pageId, LANGS, DEFAULT_LANG } from './paths';
 
 describe('parseId', () => {
   it('splits language and slug', () => {
@@ -38,5 +38,12 @@ describe('constants', () => {
   it('exposes languages and default', () => {
     expect(LANGS).toEqual(['en', 'ru']);
     expect(DEFAULT_LANG).toBe('en');
+  });
+});
+
+describe('pageId', () => {
+  it('builds collection id from lang and slug', () => {
+    expect(pageId('ru', 'values')).toBe('ru/values');
+    expect(pageId('en', 'index')).toBe('en/index');
   });
 });
