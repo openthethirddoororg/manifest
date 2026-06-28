@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import { parseId, routeSlug, entryUrl, type Lang } from '../lib/paths';
+
+interface Props { lang: Lang; current: string }
+const { lang, current } = Astro.props;
+
+const entries = (await getCollection('pages'))
+  .filter((e) => parseId(e.id).lang === lang)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<nav class="main">
+  {entries.map((e) => {
+    const slug = parseId(e.id).slug;
+    const href = entryUrl(lang, slug);
+    const isCurrent = routeSlug(slug) === current;
+    return <a href={href} aria-current={isCurrent ? 'page' : undefined}>{e.data.title}</a>;
+  })}
+</nav>

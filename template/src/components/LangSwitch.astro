@@ -1,0 +1,11 @@
+---
+import { entryUrl, otherLang, type Lang } from '../lib/paths';
+
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const target = otherLang(lang);
+const label = target.toUpperCase();
+---
+<div class="lang-switch">
+  <a href={entryUrl(target, slug)} hreflang={target}>{label}</a>
+</div>
