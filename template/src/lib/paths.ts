@@ -1,7 +1,5 @@
-export type Lang = 'en' | 'ru';
-
-export const LANGS: Lang[] = ['en', 'ru'];
-export const DEFAULT_LANG: Lang = 'en';
+/** A locale code — the name of a top-level folder under content/ (e.g. "en"). */
+export type Lang = string;
 
 export interface ParsedId {
   lang: Lang;
@@ -25,11 +23,6 @@ export function entryUrl(lang: Lang, slug: string): string {
   return r ? `/${lang}/${r}` : `/${lang}`;
 }
 
-/** The other supported language. */
-export function otherLang(lang: Lang): Lang {
-  return lang === 'en' ? 'ru' : 'en';
-}
-
 /**
  * Collection id for a page: pageId('ru','values') === 'ru/values'.
  * The home page has an empty slug and its id is just the language code
@@ -38,4 +31,31 @@ export function otherLang(lang: Lang): Lang {
  */
 export function pageId(lang: Lang, slug: string): string {
   return slug ? `${lang}/${slug}` : lang;
+}
+
+/** Sorted, unique locale codes present in a list of collection ids. */
+export function locales(ids: string[]): Lang[] {
+  const seen = new Set(ids.map((id) => parseId(id).lang));
+  return [...seen].sort();
+}
+
+export interface LocaleLink {
+  lang: Lang;
+  href: string;
+  current: boolean;
+}
+
+/**
+ * Every site locale, for the language switch. The current locale is flagged
+ * (rendered highlighted, not as a link). Each other locale links to this
+ * page's mirror when it exists, otherwise to that locale's home — so a link
+ * is always valid even before a page is translated. Derived from the
+ * collection ids, so adding a content/<lang>/ folder adds it automatically.
+ */
+export function localeLinks(ids: string[], lang: Lang, slug: string): LocaleLink[] {
+  return locales(ids).map((other) => ({
+    lang: other,
+    current: other === lang,
+    href: ids.includes(pageId(other, slug)) ? entryUrl(other, slug) : entryUrl(other, ''),
+  }));
 }

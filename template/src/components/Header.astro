@@ -8,10 +8,12 @@ const { lang, slug } = Astro.props;
 const current = slug === 'index' ? '' : slug;
 ---
 <header class="site">
-  <a class="brand" href={entryUrl(lang, 'index')}>
-    <img src="/images/logo.png" alt="Open the Third Door" />
-    <span>Open the Third Door</span>
-  </a>
+  <div class="bar">
+    <a class="brand" href={entryUrl(lang, 'index')}>
+      <img src="/images/logo.png" alt="Open the Third Door" />
+      <span>Open the Third Door</span>
+    </a>
+    <LangSwitch lang={lang} slug={slug} />
+  </div>
   <Nav lang={lang} current={current} />
-  <LangSwitch lang={lang} slug={slug} />
 </header>
