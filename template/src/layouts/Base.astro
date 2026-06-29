@@ -13,6 +13,15 @@ const { title, description, lang, slug } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Apply the saved theme before paint (light by default) — no flash.
+      (function () {
+        try {
+          if (localStorage.getItem('theme') === 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
+      })();
+    </script>
     <title>{title} · Open the Third Door</title>
     <link rel="icon" href="/favicon.ico" />
     <Seo title={title} description={description} lang={lang} slug={slug} />

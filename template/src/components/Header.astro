@@ -1,6 +1,7 @@
 ---
 import Nav from './Nav.astro';
 import LangSwitch from './LangSwitch.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { entryUrl, type Lang } from '../lib/paths';
 
 interface Props { lang: Lang; slug: string }
@@ -30,5 +31,8 @@ const repoUrl = 'https://github.com/openthethirddoororg/manifest';
       </a>
     </div>
   </div>
-  <Nav lang={lang} current={current} />
+  <div class="navbar">
+    <Nav lang={lang} current={current} />
+    <ThemeToggle />
+  </div>
 </header>
