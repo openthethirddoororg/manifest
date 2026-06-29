@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import { entryUrl, pageId, locales, type Lang } from '../lib/paths';
+
+interface Props { title: string; description?: string; lang: Lang; slug: string }
+const { title, description, lang, slug } = Astro.props;
+
+const site = Astro.site!; // https://openthethirddoor.org/ (from astro.config)
+const siteName = 'Open the Third Door';
+const siteDescription =
+  'A live community for people who work with people — finding the third door hidden in the framing.';
+const desc = description ?? siteDescription;
+const fullTitle = `${title} · ${siteName}`;
+
+const canonical = new URL(entryUrl(lang, slug), site).href;
+const ogImage = new URL('/images/logo_large.png', site).href;
+
+// hreflang alternates: every locale that has this page; x-default → English.
+const ids = (await getCollection('pages')).map((e) => e.id);
+const alternates = locales(ids)
+  .filter((l) => ids.includes(pageId(l, slug)))
+  .map((l) => ({ lang: l, href: new URL(entryUrl(l, slug), site).href }));
+const xDefault = alternates.find((a) => a.lang === 'en') ?? alternates[0];
+
+// og:locale wants language_TERRITORY; fall back to the bare code.
+const ogLocale: Record<string, string> = { en: 'en_US', ru: 'ru_RU' };
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${site.href}#org`,
+      name: siteName,
+      url: site.href,
+      logo: new URL('/images/logo.png', site).href,
+      description: siteDescription,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.href}#website`,
+      name: siteName,
+      url: site.href,
+      publisher: { '@id': `${site.href}#org` },
+      inLanguage: locales(ids),
+    },
+    {
+      '@type': 'WebPage',
+      url: canonical,
+      name: fullTitle,
+      description: desc,
+      inLanguage: lang,
+      isPartOf: { '@id': `${site.href}#website` },
+    },
+  ],
+};
+---
+<link rel="canonical" href={canonical} />
+{alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+{xDefault && <link rel="alternate" hreflang="x-default" href={xDefault.href} />}
+
+<meta name="description" content={desc} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={desc} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={ogLocale[lang] ?? lang} />
+{alternates
+  .filter((a) => a.lang !== lang)
+  .map((a) => <meta property="og:locale:alternate" content={ogLocale[a.lang] ?? a.lang} />)}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={desc} />
+<meta name="twitter:image" content={ogImage} />
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

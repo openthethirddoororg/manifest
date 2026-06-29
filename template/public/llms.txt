@@ -1,0 +1,23 @@
+# Open the Third Door
+
+> Another Way / «Можно иначе» — a live community for people who work with people.
+> Most conflicts rest on a false either/or; the lie hides in the framing. We meet
+> for live breakdowns and find the third door — the move you couldn't see from
+> inside your own point of view — leaving with one concrete step, not inspiration.
+
+The site is a manifesto plus a few pages. Content is Markdown; English is the
+canonical source, Russian is a complete translation. Source and contributions:
+https://github.com/openthethirddoororg/manifest
+
+## Pages (English, canonical)
+
+- [Manifesto](https://openthethirddoor.org/en): what this is, who it's for, what we value, and the core — leadership of your own life.
+- [Values](https://openthethirddoor.org/en/values): the air the community breathes — air, honesty, vulnerability, silence, the third door, action, your own path, dignity.
+- [Rules](https://openthethirddoor.org/en/rules): how we work together — the closed breakdown room and the open community.
+- [Trust](https://openthethirddoor.org/en/trust): "Why should you trust me? No. You don't." — trust the test, not the person.
+- [Join](https://openthethirddoor.org/en/join): who this is (and isn't) for, and how to apply.
+- [Co-host](https://openthethirddoor.org/en/cohost): a guide for invited guests who run a meeting.
+
+## Russian translation
+
+- [Манифест](https://openthethirddoor.org/ru), [Ценности](https://openthethirddoor.org/ru/values), [Правила](https://openthethirddoor.org/ru/rules), [Доверие](https://openthethirddoor.org/ru/trust), [Присоединиться](https://openthethirddoor.org/ru/join), [Со-хост](https://openthethirddoor.org/ru/cohost)

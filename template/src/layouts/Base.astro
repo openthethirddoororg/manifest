@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Seo from '../components/Seo.astro';
 import type { Lang } from '../lib/paths';
 import '../styles/global.css';
 
@@ -13,8 +14,8 @@ const { title, description, lang, slug } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} · Open the Third Door</title>
-    {description && <meta name="description" content={description} />}
     <link rel="icon" href="/favicon.ico" />
+    <Seo title={title} description={description} lang={lang} slug={slug} />
   </head>
   <body>
     <div class="wrap">
