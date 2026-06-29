@@ -22,7 +22,7 @@ const { title, description, lang, slug } = Astro.props;
       <main>
         <slot />
       </main>
-      <Footer />
+      <Footer lang={lang} />
     </div>
   </body>
 </html>
