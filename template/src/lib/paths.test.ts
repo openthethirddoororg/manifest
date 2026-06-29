@@ -46,4 +46,8 @@ describe('pageId', () => {
     expect(pageId('ru', 'values')).toBe('ru/values');
     expect(pageId('en', 'index')).toBe('en/index');
   });
+  it('uses the bare language code for the home page (empty slug)', () => {
+    expect(pageId('ru', '')).toBe('ru');
+    expect(pageId('en', '')).toBe('en');
+  });
 });

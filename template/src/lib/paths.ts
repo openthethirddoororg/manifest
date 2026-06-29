@@ -30,7 +30,12 @@ export function otherLang(lang: Lang): Lang {
   return lang === 'en' ? 'ru' : 'en';
 }
 
-/** Collection id for a page, e.g. pageId('ru','values') === 'ru/values'. */
+/**
+ * Collection id for a page: pageId('ru','values') === 'ru/values'.
+ * The home page has an empty slug and its id is just the language code
+ * (the glob loader maps content/ru/index.md to id "ru"), so don't append a
+ * trailing slash — pageId('ru','') === 'ru'.
+ */
 export function pageId(lang: Lang, slug: string): string {
-  return `${lang}/${slug}`;
+  return slug ? `${lang}/${slug}` : lang;
 }
