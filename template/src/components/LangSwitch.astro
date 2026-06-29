@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import { entryUrl, otherLang, pageId, type Lang } from '../lib/paths';
+
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const target = otherLang(lang);
+const exists = (await getCollection('pages')).some((e) => e.id === pageId(target, slug));
+const label = target.toUpperCase();
+---
+{exists && (
+  <div class="lang-switch">
+    <a href={entryUrl(target, slug)} hreflang={target}>{label}</a>
+  </div>
+)}

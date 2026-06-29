@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# Astro build output & cache (generated site is never committed).
+# Match .astro at any depth — a stray one can appear at the repo root if
+# `astro` is ever run with the wrong working directory.
+template/dist/
+.astro/
+
+# logs / env
+*.log
+.env
+.env.*
+.DS_Store

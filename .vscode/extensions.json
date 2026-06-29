@@ -1,0 +1,5 @@
+{
+  // Official Astro extension — fixes editor resolution of `astro:content`,
+  // `astro/zod`, and the generated template/.astro types.
+  "recommendations": ["astro-build.astro-vscode"]
+}

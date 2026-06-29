@@ -1,0 +1,52 @@
+{
+  // All tasks run from template/ — the Astro project root. Running Astro from
+  // the repo root generates a stray .astro/ with wrong paths, so cwd matters.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Astro: dev server",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/template" },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "Start the local Astro dev server (hot reload) at http://localhost:4321"
+    },
+    {
+      "label": "Astro: build site",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}/template" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": [],
+      "detail": "Build the static site into template/dist"
+    },
+    {
+      "label": "Astro: preview build",
+      "type": "shell",
+      "command": "npm run preview",
+      "options": { "cwd": "${workspaceFolder}/template" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "Serve the built template/dist locally to preview the production output"
+    },
+    {
+      "label": "Test: vitest",
+      "type": "shell",
+      "command": "npm test",
+      "options": { "cwd": "${workspaceFolder}/template" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": [],
+      "detail": "Run the Vitest unit tests once"
+    },
+    {
+      "label": "Astro: sync types",
+      "type": "shell",
+      "command": "npx astro sync",
+      "options": { "cwd": "${workspaceFolder}/template" },
+      "problemMatcher": [],
+      "detail": "Regenerate template/.astro content & collection types (run after editing content.config.ts or frontmatter)"
+    }
+  ]
+}
