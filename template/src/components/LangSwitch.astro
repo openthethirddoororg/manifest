@@ -1,15 +1,21 @@
 ---
 import { getCollection } from 'astro:content';
-import { entryUrl, otherLang, pageId, type Lang } from '../lib/paths';
+import { localeLinks, type Lang } from '../lib/paths';
 
 interface Props { lang: Lang; slug: string }
 const { lang, slug } = Astro.props;
-const target = otherLang(lang);
-const exists = (await getCollection('pages')).some((e) => e.id === pageId(target, slug));
-const label = target.toUpperCase();
+
+const ids = (await getCollection('pages')).map((e) => e.id);
+const links = localeLinks(ids, lang, slug);
 ---
-{exists && (
+{links.length > 1 && (
   <div class="lang-switch">
-    <a href={entryUrl(target, slug)} hreflang={target}>{label}</a>
+    {links.map((l) =>
+      l.current ? (
+        <span class="current" aria-current="true">{l.lang.toUpperCase()}</span>
+      ) : (
+        <a href={l.href} hreflang={l.lang}>{l.lang.toUpperCase()}</a>
+      ),
+    )}
   </div>
 )}

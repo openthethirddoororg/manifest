@@ -18,14 +18,17 @@ body {
   background: var(--bg);
 }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 1.5rem; }
-header.site { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+/* Header: row 1 = brand (left) + language switch (right); row 2 = page nav. */
+header.site { display: flex; flex-direction: column; gap: .75rem; }
+header.site .bar { display: flex; align-items: center; gap: 1rem; }
 header.site .brand { display: flex; align-items: center; gap: .5rem; font-weight: 600; text-decoration: none; color: inherit; }
 header.site img { width: 32px; height: 32px; }
 nav.main { display: flex; gap: 1rem; flex-wrap: wrap; }
 nav.main a { text-decoration: none; color: var(--muted); }
 nav.main a[aria-current="page"] { color: var(--accent); font-weight: 600; }
-.lang-switch { margin-left: auto; }
+.lang-switch { margin-left: auto; display: flex; gap: .75rem; }
 .lang-switch a { color: var(--muted); text-decoration: none; }
+.lang-switch .current { color: var(--accent); font-weight: 600; }
 main { margin: 2rem 0; }
 footer.site { border-top: 1px solid #8884; margin-top: 3rem; padding-top: 1rem; color: var(--muted); font-size: .9rem; }
 a { color: var(--accent); }
