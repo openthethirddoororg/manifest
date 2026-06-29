@@ -1,4 +1,4 @@
-# Open the Third Door — website
+# Open the Third Door — manifest
 
 Source for **[openthethirddoor.org](https://openthethirddoor.org)** — the public
 site for *Another Way* / «Можно иначе», a live community for people who work with
@@ -6,45 +6,45 @@ people. We meet for live breakdowns: you bring a real knot from your work, and
 together we find the lie hidden in the framing — the **third door** you couldn't
 see from inside your own point of view.
 
-## How the site is built
+## How it works
 
-A static site generated with [Astro](https://astro.build) from Markdown, deployed
-to GitHub Pages via GitHub Actions. There is a deliberate split between **content**
-and **design**:
+A static, multilingual site generated with [Astro](https://astro.build) from
+Markdown and deployed to GitHub Pages. There is a deliberate split between
+**content** and **design**:
 
-| Folder        | Who owns it  | What's in it                                        |
-|---------------|--------------|-----------------------------------------------------|
-| `content/`    | contributors | Page content in Markdown (`title` + `order` only)   |
-| `template/`   | maintainer   | The Astro project: layout, components, CSS, config  |
+| Folder        | Who owns it  | What's in it                                       |
+|---------------|--------------|----------------------------------------------------|
+| `content/`    | contributors | Page content in Markdown, one folder per language  |
+| `template/`   | maintainer   | The Astro project: layout, components, CSS, config |
 
-Content lives in `content/<lang>/*.md`. Each file becomes a page; navigation and
-the language switch are generated from the files automatically, so adding a page
-never requires touching `template/`. Today only Russian (`content/ru/`) is
-published; English (`content/en/`) will follow.
-
-## Working on it locally
-
-Requires Node 20+. All commands run from `template/`:
-
-```bash
-cd template
-npm install
-npm run dev      # local dev server with hot reload
-npm run build    # build static site into template/dist
-npm test         # run unit tests (Vitest)
-```
-
-> Always run Astro from `template/` (or use the VS Code tasks in `.vscode/`).
-> Running it from the repo root generates a stray `.astro/` with wrong paths.
-
-The generated site (`template/dist`) is **not** committed — GitHub Actions builds
-and publishes it on every push to `main`.
+Navigation and the language switch are generated from the content, so adding a
+page or a language never requires touching the design. To build the site
+locally, see **[DEVELOPMENT.md](DEVELOPMENT.md)**.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). In short: edit Markdown in
-`content/<lang>/` only, keep the `title` + `order` frontmatter, and leave the
-design to `template/`. Please also read the [Code of Conduct](CODE_OF_CONDUCT.md).
+The words on this site are the point, and we'd love your help with them. There
+are two ways in — pick either, no coding required:
+
+- **🌍 Localize it.** Add your language by translating the pages into a new
+  `content/<your-language>/` folder. The site picks it up automatically.
+- **✍️ Improve the manifesto.** The **English** text is the central, canonical
+  version — the source every translation follows. Propose changes to the meaning
+  there, and translations can follow.
+
+### Localizations
+
+| Language | Code | Status                |
+|----------|------|-----------------------|
+| English  | `en` | Canonical source      |
+| Russian  | `ru` | Complete              |
+
+Want to see your language here? Open an issue or a pull request — start from the
+English pages in `content/en/` as the reference.
+
+The how-to (frontmatter, file naming, the content/design boundary) lives in
+**[CONTRIBUTING.md](CONTRIBUTING.md)**. Please also read the
+**[Code of Conduct](CODE_OF_CONDUCT.md)**.
 
 ## License
 
