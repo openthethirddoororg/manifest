@@ -3,11 +3,13 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://openthethirddoor.org',
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'ru',
     locales: ['en', 'ru'],
   },
-  // Root → default locale. en/ru are prefixed by the [lang] route itself.
+  // Only Russian content exists for now, so root lands on /ru. When English
+  // content is added under content/en/, switch this back to /en (and the
+  // language switch will appear automatically on mirrored pages).
   redirects: {
-    '/': '/en',
+    '/': '/ru',
   },
 });
