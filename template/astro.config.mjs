@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // Locales are derived from the folders under content/ — add content/<lang>/
 // and that language is part of the site automatically. English is required
@@ -30,4 +31,13 @@ export default defineConfig({
   redirects: {
     '/': '/en',
   },
+  integrations: [
+    // Generates sitemap-index.xml with hreflang alternates per locale.
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: Object.fromEntries(locales.map((l) => [l, l])),
+      },
+    }),
+  ],
 });
