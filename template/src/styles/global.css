@@ -2,12 +2,17 @@
   --maxw: 42rem;
   --fg: #1a1a1a;
   --bg: #ffffff;
-  --muted: #666;
-  --accent: #b8742a;
+  --muted: #595959;        /* 7.0:1 on white — AA */
+  --accent: #9a5618;       /* 5.4:1 on white — AA (darker amber for light bg) */
   color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --fg: #ededed; --bg: #121212; --muted: #9a9a9a; }
+  :root {
+    --fg: #ededed;
+    --bg: #121212;
+    --muted: #9a9a9a;      /* 6.6:1 on #121212 — AA */
+    --accent: #d2914c;     /* 7.0:1 on #121212 — AA (brighter amber for dark bg) */
+  }
 }
 * { box-sizing: border-box; }
 body {
