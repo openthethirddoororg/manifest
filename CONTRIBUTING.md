@@ -16,8 +16,10 @@ colors, navigation — is owned by the maintainer so the site stays coherent.
 
 ## Editing content
 
-Content lives in `content/<lang>/`, one Markdown file per page. Currently the
-published language is Russian (`content/ru/`). English (`content/en/`) is planned.
+Content lives in `content/<lang>/`, one Markdown file per page. **English
+(`content/en/`) is the canonical source** that every translation follows;
+Russian (`content/ru/`) is complete. To add a new language, see
+[Adding a language](#adding-a-language) below.
 
 Every content file **must** start with frontmatter:
 
@@ -37,31 +39,37 @@ Rules:
   build with a clear error — that's intentional, it stops broken pages shipping.
 - **Navigation is automatic.** The menu is built from the files, ordered by
   `order`. Add a file → it appears. No code change needed.
-- **Keep filenames in sync across languages.** The language switch links a page
-  to the same filename in the other language and only appears when that mirror
-  exists. So `content/en/values.md` should match `content/ru/values.md`.
+- **Keep filenames in sync across languages.** The language switch shows every
+  language; a page links to its translation when the same filename exists in the
+  other language, otherwise to that language's home. So `content/en/values.md`
+  should have a matching `content/ru/values.md`.
 - **Don't edit `template/`** unless you mean to change the design.
 
-## Proposing a change
+## Adding a language
 
-1. Edit the relevant Markdown file(s) under `content/<lang>/`.
+1. Create `content/<code>/` (e.g. `content/de/`), where `<code>` is the locale code.
+2. Translate the pages from `content/en/`, keeping the **same filenames** so links line up.
+3. Keep each file's `order`; translate `title`, `description`, and the body.
+
+That's all — the new language appears in the site and the language switch
+automatically. English must always exist (it is the default locale); every other
+language is optional and added this way.
+
+## Proposing a change to the manifesto
+
+The English text is canonical, so changes to **meaning** start there; translations
+follow.
+
+1. Edit the relevant Markdown file(s) under `content/en/` (and matching translations if you can).
 2. Open a pull request describing what changed and why.
 3. If you found a problem with the participation rules themselves, raise it
    **between meetings** (an issue or a message to the host) — not in the middle of
    a session. See the rules page on the site.
 
-## Running it before you submit (optional)
+## Building locally (optional)
 
-If you have Node 20+ installed, you can preview locally:
-
-```bash
-cd template
-npm install
-npm run dev
-```
-
-But you don't need to run anything to contribute content — a maintainer and CI
-will verify the build.
+You don't need to run anything to contribute content — a maintainer and CI verify
+the build. If you want to preview locally, see [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## Conduct
 
