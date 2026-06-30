@@ -57,6 +57,17 @@ added automatically, and the attribution renders smaller and muted:
 > Leonard Cohen, "Anthem"
 ```
 
+### Callouts
+
+To highlight something in a rounded, framed box, start each line with `|`. An
+empty `|` line is a paragraph break; normal Markdown (bold, links…) works inside:
+
+```markdown
+| This is highlighted.
+|
+| And this is a second paragraph in the same box.
+```
+
 ## Adding a language
 
 1. Create `content/<code>/` (e.g. `content/de/`), where `<code>` is the locale code.

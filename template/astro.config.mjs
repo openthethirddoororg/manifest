@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import remarkCallout from './src/plugins/remark-callout.mjs';
 
 // Locales are derived from the folders under content/ — add content/<lang>/
 // and that language is part of the site automatically. English is required
@@ -30,6 +31,10 @@ export default defineConfig({
   // route; the language switch appears on every mirrored page.
   redirects: {
     '/': '/en',
+  },
+  markdown: {
+    // `|`-prefixed blocks become highlighted callout boxes (see the plugin).
+    remarkPlugins: [remarkCallout],
   },
   integrations: [
     // Generates sitemap-index.xml with hreflang alternates per locale.
