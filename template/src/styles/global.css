@@ -61,6 +61,22 @@ header.site .actions { margin-left: auto; display: flex; align-items: center; ga
 header.site .repo { display: inline-flex; color: var(--muted); }
 header.site .repo:hover { color: var(--accent); }
 main { margin: 2rem 0; }
+/* Quotes. Put the attribution in a second paragraph (a blank `>` line) and the
+   dash is added automatically: it renders smaller and muted below the quote. */
+blockquote {
+  margin: 1.75rem 0;
+  padding: .4rem 0 .4rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  color: var(--fg);
+  font-style: italic;
+}
+blockquote p { margin: .4rem 0; }
+blockquote p:not(:only-child):last-child {
+  font-style: normal;
+  font-size: .9rem;
+  color: var(--muted);
+}
+blockquote p:not(:only-child):last-child::before { content: "— "; }
 footer.site { border-top: 1px solid #8884; margin-top: 3rem; padding-top: 1rem; color: var(--muted); font-size: .9rem; }
 footer.site p { margin: 0; }
 a { color: var(--accent); }

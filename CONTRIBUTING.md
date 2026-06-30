@@ -45,6 +45,18 @@ Rules:
   should have a matching `content/ru/values.md`.
 - **Don't edit `template/`** unless you mean to change the design.
 
+### Quotes
+
+For a styled quote, use a Markdown blockquote and put the attribution in a
+**second paragraph** (a blank `>` line between them). Don't add a dash — it's
+added automatically, and the attribution renders smaller and muted:
+
+```markdown
+> There is a crack in everything. That's how the light gets in.
+>
+> Leonard Cohen, "Anthem"
+```
+
 ## Adding a language
 
 1. Create `content/<code>/` (e.g. `content/de/`), where `<code>` is the locale code.
