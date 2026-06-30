@@ -1,31 +1,37 @@
 ---
 title: Trust
 order: 4
-description: Why should you trust me? No. You don't. Trust the test.
+description: Why should you trust me? No. You don't.
 ---
+
+All my life I believed something was "wrong" with me.
+
+I watched people build "successful" careers by climbing over others.
+
+I watched marketing "standards" get pushed — buy now or miss out.
+
+Managers knew only the language of pressure and manipulation — work longer, work weekends — and treated any lateness as a "breach of policy," spinning up the bureaucratic machine. They hid incompetence behind aggression and contempt.
+
+I watched people tolerate each other for years and suppress their emotions, then explode, or drown the pain in alcohol.
+
+I watched people say one thing, think another, and feel a third. Carrying masks for every occasion.
+
+And I didn't understand — what's wrong with me? Why does living by these rules not resonate?
+
+Years of reflection and therapy showed that the "something's off" is a suppressed "something most valuable" — the **inner compass** that reveals the true nature of what's happening — and **we were taught not to trust it.**
+
+In IT I realized that the core **value** isn't the algorithms, servers, code, or products, but the **people who create them.** The connections we build are alive. And a company's org chart can either adapt to the company's living processes and grow with it, or instead subjugate people and processes, becoming shackles.
 
 # Why should you trust me?
 
 **No. You don't.**
 
-Not yet — and maybe not ever. That's the point.
+Not yet — and maybe never. That's the point.
 
-I'm not here to be believed. The moment you take my word for something, you've stopped checking it against your own life — which is exactly the trap this whole thing exists to break. (That was Krishnamurti's whole point: follow someone, and you stop following the truth.)
+I'm not here to be believed. The moment you take my word for something, you stop checking it against your own life.
 
-So don't trust me. **Trust the test.**
+So don't trust me. **Trust yourself — whether it helps you, whether things get easier in how you relate to people, or not.**
 
-Come once. Bring a real knot. Watch what happens when we pull at the lie in the framing. If you leave with a move you couldn't see before — a way through where there seemed to be none — then you have something better than trust in me: your own evidence. If you don't, you've lost one evening and you owe me nothing.
+I'm someone who works with people and keeps finding, again and again, that the third way is real.
 
-What I promise is narrow and real:
-
-- I'll hold the room, so you're safe to open up.
-- I'll tell you the truth as I see it — kindly, and without games.
-- I won't sell you anything, won't turn you into a follower, won't pretend to have your answer.
-
-I'm not a guru, and I don't want to be one. I'm someone who works with people and keeps finding that the third way is real.
-
-The only authority I'll claim is this: I live by this manifesto myself — imperfectly. I try, I get it wrong, I fall, and I get up and keep walking. Walk alongside if it's yours to walk.
-
----
-
-> I won't list titles here. What matters: I've spent years working with people, sitting with them in their stuck places — and I've been wrong plenty of times. I'm not above any of this — I'm in it with you. If something here rings true, test it. If it doesn't, drop it.
+The only authority I'll claim is this: I live by this manifesto myself, imperfectly, making plenty of mistakes. What matters is getting up one more time than you fall.

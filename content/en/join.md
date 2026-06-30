@@ -1,7 +1,7 @@
 ---
 title: Join
 order: 5
-description: A closed format of live breakdowns. Fill in the form and join the community.
+description: Fill in the form and join the community.
 ---
 
 # Join
@@ -19,13 +19,3 @@ The form has a few questions. They aren't there to be "passed": they help *you* 
 **This is your place if** you're ready to share your story, to see your conflict from the outside, and to rehearse the hard move without fear of judgment.
 
 → **[Fill in the participant form](#)**
-
----
-
-## Community
-
-And join our WhatsApp — materials, mutual help, upcoming dates.
-
-→ **[Join WhatsApp](#)**
-
-*The form and chat links will be added by the organizers.*
