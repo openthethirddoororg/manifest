@@ -1,6 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
 import { entryUrl, pageId, locales, type Lang } from '../lib/paths';
+import { getPages } from '../lib/content';
 
 interface Props { title: string; description?: string; lang: Lang; slug: string }
 const { title, description, lang, slug } = Astro.props;
@@ -16,7 +16,7 @@ const canonical = new URL(entryUrl(lang, slug), site).href;
 const ogImage = new URL('/images/logo_large.png', site).href;
 
 // hreflang alternates: every locale that has this page; x-default → English.
-const ids = (await getCollection('pages')).map((e) => e.id);
+const ids = (await getPages()).map((e) => e.id);
 const alternates = locales(ids)
   .filter((l) => ids.includes(pageId(l, slug)))
   .map((l) => ({ lang: l, href: new URL(entryUrl(l, slug), site).href }));

@@ -1,11 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
 import { parseId, routeSlug, entryUrl, type Lang } from '../lib/paths';
+import { getPages } from '../lib/content';
 
 interface Props { lang: Lang; current: string }
 const { lang, current } = Astro.props;
 
-const entries = (await getCollection('pages'))
+const entries = (await getPages())
   .filter((e) => parseId(e.id).lang === lang)
   .sort((a, b) => a.data.order - b.data.order);
 ---

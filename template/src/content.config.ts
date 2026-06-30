@@ -8,6 +8,9 @@ const pages = defineCollection({
     title: z.string(),
     order: z.number(),
     description: z.string().optional(),
+    // draft: true → hidden from production builds (no page, nav, switch, sitemap),
+    // still visible in `astro dev` for previewing.
+    draft: z.boolean().default(false),
   }),
 });
 

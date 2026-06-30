@@ -1,10 +1,11 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import { parseId, routeSlug } from '../../lib/paths';
+import { getPages } from '../../lib/content';
 import Base from '../../layouts/Base.astro';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('pages');
+  const entries = await getPages();
   return entries.map((entry) => {
     const { lang, slug } = parseId(entry.id);
     const r = routeSlug(slug);

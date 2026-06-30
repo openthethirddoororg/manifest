@@ -1,11 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
 import { localeLinks, type Lang } from '../lib/paths';
+import { getPages } from '../lib/content';
 
 interface Props { lang: Lang; slug: string }
 const { lang, slug } = Astro.props;
 
-const ids = (await getCollection('pages')).map((e) => e.id);
+const ids = (await getPages()).map((e) => e.id);
 const links = localeLinks(ids, lang, slug);
 ---
 {links.length > 1 && (
